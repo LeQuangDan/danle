@@ -1,4 +1,4 @@
-# danle
+# Quang Dan Le
 Biographic
 PROFILE:
     • An expert in robotic manipulators with deep knowledge spanning from low-level to high-level control. Rick experience working with various industrial robotic arms such as ABB, UR, YASKAWA, Doosan, and Staubli, as well as hands-on experience building robotic arms from scratch. 
