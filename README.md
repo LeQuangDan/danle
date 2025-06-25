@@ -1,17 +1,17 @@
 # Quang Dan Le
 ## Biographic
-*PROFILE:
+### PROFILE:
     • An expert in robotic manipulators with deep knowledge spanning from low-level to high-level control. Rick experience working with various industrial robotic arms such as ABB, UR, YASKAWA, Doosan, and Staubli, as well as hands-on experience building robotic arms from scratch. 
     • Published in areas such as fault-tolerant control, human-robot interaction, and reinforcement learning for robotic manipulators in tasks like picking and placing objects. 
     • Many years of experience in programming microcontrollers for robotics, including AVR, PIC, and ARM, with proficiency in popular programming languages such as C/C++/C#, Python, LabVIEW, and Matlab. Particularly experienced with ROS/ROS2 for robotic manipulators. 
     • Involved in numerous projects across various sectors in applying robotics and automation, with international experience in countries such as South Korea, Singapore, and the UK.
-EDUCATION:	University of Ulsan, Korea
+### EDUCATION:	University of Ulsan, Korea
 M.S and Ph.D. Electrical Engineering, May 2022
 
 Da Nang University of Technology, Viet Nam
 B.S. Mechatronic Engineering, 2011.
 
-RESEARCH INTERESTS:
+### RESEARCH INTERESTS:
     • Reinforcement learning with end-to-end control.
     • Fault detection model-base for robot manipulators.
     • Fault-tolerant control for robot manipulators.
@@ -21,7 +21,7 @@ RESEARCH INTERESTS:
     • Human-robot interaction.
 
 
-RESEARCH EXPERIENCE:
+### RESEARCH EXPERIENCE:
 University of Derby, Derby, United Kingdom
 Lecturer at School of Computing, April 2025- Present
         ◦ Research topics:
