@@ -5,7 +5,7 @@
     • An expert in robotic manipulators with deep knowledge spanning from low-level to high-level control.
     • Published in areas such as fault-tolerant control, human-robot interaction, and reinforcement learning for robotic manipulators. 
     • Many years of experience in programming microcontrollers for robotics,ROS/ROS2 for robotic manipulators. 
-    • Involved in numerous projects across various sectors in applying robotics and automation in countries such as South Korea, Singapore, and the UK.
+    • Involved in numerous projects in applying robotics and automation at South Korea, Singapore, and the UK.
 ### EDUCATION:	
 #### University of Ulsan, Korea
 - M.S and Ph.D. Electrical Engineering, May 2022
