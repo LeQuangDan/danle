@@ -1,0 +1,204 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Quang Dan Le - Biography</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003087;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background-color: #005b96;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #003087;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        section p, section ul {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 2rem;
+        }
+
+        footer {
+            background-color: #003087;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dr. Quang Dan Le</h1>
+        <p>Lecturer in Robotics and Automation | University of Derby</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>About Dr. Quang Dan Le</h2>
+        <p>Dr. Quang Dan Le is a distinguished academic and researcher, serving as a Lecturer at the University of Derby. Holding a Doctor of Philosophy degree, Dr. Le has made significant contributions to the fields of robotics and automation, with a focus on advancing intelligent systems through innovative methodologies.</p>
+        <p>With a passion for education and research, Dr. Le combines academic rigor with practical applications, inspiring the next generation of engineers and researchers in the rapidly evolving field of robotics.</p>
+    </section>
+
+    <section id="research">
+        <h2>Research Interests</h2>
+        <p>Dr. Le's research primarily focuses on the following areas:</p>
+        <ul>
+            <li><strong>Multi-task Reinforcement Learning:</strong> Developing algorithms that enable robots to perform multiple tasks efficiently by learning from diverse datasets.</li>
+            <li><strong>Imitation Learning based on Inverse Reinforcement:</strong> Creating systems that allow robots to mimic human behavior by inferring underlying objectives from observed actions.</li>
+            <li><strong>Robotics and Automation:</strong> Exploring cutting-edge techniques to enhance automation processes in industrial and academic settings.</li>
+        </ul>
+        <p>His work has been recognized in academic communities, contributing to advancements in intelligent automation and robotic systems.</p>[](https://www.researchgate.net/profile/Quang-Dan-Le)
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>For inquiries, collaborations, or academic engagements, please reach out to Dr. Quang Dan Le via the University of Derby's official channels.</p>
+        <p>Email: <a href="mailto:q.le@derby.ac.uk">q.le@derby.ac.uk</a></p>
+        <p>Profile: <a href="https://www.researchgate.net/profile/Quang-Le-12" target="_blank">ResearchGate</a> | <a href="https://sciprofiles.com/profile/QuangDanLe" target="_blank">SciProfiles</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dr. Quang Dan Le. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
